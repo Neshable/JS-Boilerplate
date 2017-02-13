@@ -1,7 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/main.js',
+    entry: './js/main.js',
     output: {
         filename: './bundle.js'
     },
@@ -18,15 +18,21 @@ module.exports = {
                 }
             },
             {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                // url=false to avoid errors due to image urls in the css
+                loader: ExtractTextPlugin.extract("css-loader?url=false!sass-loader")
+            },
+            {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: ExtractTextPlugin.extract("css-loader")
-                // Use the line below if you want to use inline css in bundle.js
+                loader: ExtractTextPlugin.extract("css-loader?url=false")
+                // Use the line below if you want to use inline the css in bundle.js
                 // loader: 'style-loader!css-loader'
             }
         ],
     },
     plugins: [
-    new ExtractTextPlugin("./css/style.css")
+    new ExtractTextPlugin("./css/main.css")
     ]
 };
