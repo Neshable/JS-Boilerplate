@@ -13,5 +13,6 @@ Minimal config file for simple front-end project. Make sure you install all the 
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "node-sass": "^4.5.0"
   } </pre>
